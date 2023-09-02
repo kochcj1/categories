@@ -1,0 +1,5 @@
+val appName by extra("JSONPlaceholder Photos")
+val apiUrl by extra("https://jsonplaceholder.typicode.com/photos")
+val titleField by extra("title")
+val urlField by extra("url")
+val thumbnailUrlField by extra("thumbnailUrl")

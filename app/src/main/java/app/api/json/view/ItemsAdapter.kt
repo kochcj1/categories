@@ -1,0 +1,54 @@
+package app.api.json.view
+
+import android.annotation.SuppressLint
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import app.api.json.databinding.ItemBinding
+import app.api.json.model.Item
+import app.api.json.model.Items
+import com.squareup.picasso.Picasso
+
+class ItemsAdapter(
+    private val context: Context,
+    private val items: Items,
+    private val listener: Listener? = null
+): RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
+
+    interface Listener {
+        fun onItemClick(item: Item)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
+        val layoutInflator = LayoutInflater.from(parent.context)
+        val binding = ItemBinding.inflate(layoutInflator, parent, false)
+        return ItemViewHolder(binding)
+    }
+
+    override fun getItemCount(): Int = items.size
+
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+        holder.bind(items[position])
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun setItems(newItems: Items) {
+        items.clear()
+        items.addAll(newItems)
+        notifyDataSetChanged()
+    }
+
+    inner class ItemViewHolder(private val binding: ItemBinding): RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: Item) {
+            binding.title.text = item.title
+            Picasso.with(context).load(item.photoUrl).into(binding.imageView)
+            binding.card.setOnClickListener {
+                listener?.let {
+                    listener.onItemClick(item)
+                }
+            }
+        }
+    }
+
+}
