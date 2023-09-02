@@ -4,7 +4,7 @@ A general purpose, Kotlin-based Android app for displaying the JSON array return
 
 ## Example: JSONPlaceholder's `/photos` Endpoint
 
-The URL `https://jsonplaceholder.typicode.com/photos` returns a JSON array of objects that looks like this:
+The URL `https://jsonplaceholder.typicode.com/photos` returns a JSON array of objects that look like this:
 
 ```json
 [
@@ -33,7 +33,7 @@ The URL `https://jsonplaceholder.typicode.com/photos` returns a JSON array of ob
 ]
 ```
 
-The configuration for this example can be found at `examples/jsonplaceholder_photos.gradle.kts`, but the contents of this (or another) config file should be copied to `app/config.gradle.kts` before building the application.
+The configuration for this example can be found at `examples/jsonplaceholder_photos.gradle.kts`, but the contents of this (or another) config file should be copied to `app/config.gradle.kts` before building the app.
 
 For this particular use case, the configuration looks like this:
 ```kotlin
