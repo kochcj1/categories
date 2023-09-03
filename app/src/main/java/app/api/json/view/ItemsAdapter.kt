@@ -42,7 +42,9 @@ class ItemsAdapter(
     inner class ItemViewHolder(private val binding: ItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Item) {
             binding.title.text = item.title
-            Picasso.with(context).load(item.photoUrl).into(binding.imageView)
+            if (item.photoUrl.isNotEmpty()) {
+                Picasso.with(context).load(item.photoUrl).into(binding.imageView)
+            }
             binding.card.setOnClickListener {
                 listener?.let {
                     listener.onItemClick(item)

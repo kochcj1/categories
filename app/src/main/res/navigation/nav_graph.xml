@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/category_items">
+
+    <fragment
+        android:id="@+id/category_items"
+        android:name="app.api.json.view.CategoriesFragment"
+        android:label="Recipes"
+        tools:layout="@layout/categories_fragment" />
+    <fragment
+        android:id="@+id/items"
+        android:name="app.api.json.view.ItemsFragment"
+        android:label="Recipes"
+        tools:layout="@layout/items_fragment" />
+</navigation>
