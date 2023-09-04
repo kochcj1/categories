@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "app.api.json"
+    namespace = "app.api.categories"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "app.api.json"
+        applicationId = "app.api.categories"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

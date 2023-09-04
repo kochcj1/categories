@@ -1,7 +1,7 @@
-package app.api.json.model.items
+package app.api.categories.model.items
 
-import app.api.json.configuration.getItems
-import app.api.json.configuration.getRequest
+import app.api.categories.configuration.getItems
+import app.api.categories.configuration.getRequest
 import okhttp3.OkHttpClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

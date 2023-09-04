@@ -1,13 +1,12 @@
-package app.api.json.view.categories
+package app.api.categories.view.categories
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import app.api.json.databinding.ItemBinding
-import app.api.json.model.categories.Category
-import app.api.json.model.categories.Categories
+import app.api.categories.databinding.ItemBinding
+import app.api.categories.model.categories.Category
+import app.api.categories.model.categories.Categories
 
 class CategoriesAdapter(
     private val categories: Categories,

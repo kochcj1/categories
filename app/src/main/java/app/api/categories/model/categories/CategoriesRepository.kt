@@ -1,9 +1,9 @@
-package app.api.json.model.categories
+package app.api.categories.model.categories
 
 import android.content.Context
 import androidx.core.content.edit
-import app.api.json.configuration.CategoryType
-import app.api.json.configuration.CategoryFactory
+import app.api.categories.configuration.CategoryType
+import app.api.categories.configuration.CategoryFactory
 
 class CategoriesRepository(private val context: Context) {
 

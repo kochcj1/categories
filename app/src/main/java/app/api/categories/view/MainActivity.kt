@@ -1,11 +1,11 @@
-package app.api.json.view
+package app.api.categories.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
-import app.api.json.R
-import app.api.json.databinding.ActivityMainBinding
+import app.api.categories.R
+import app.api.categories.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

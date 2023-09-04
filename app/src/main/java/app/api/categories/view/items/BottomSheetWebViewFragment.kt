@@ -1,12 +1,12 @@
-package app.api.json.view.items
+package app.api.categories.view.items
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
-import app.api.json.R
-import app.api.json.databinding.BottomSheetWebViewFragmentBinding
+import app.api.categories.R
+import app.api.categories.databinding.BottomSheetWebViewFragmentBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomSheetWebViewFragment(private val url: String) : BottomSheetDialogFragment() {

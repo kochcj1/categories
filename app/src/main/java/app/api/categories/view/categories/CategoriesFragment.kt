@@ -1,4 +1,4 @@
-package app.api.json.view.categories
+package app.api.categories.view.categories
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,14 +12,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import app.api.json.BuildConfig
-import app.api.json.R
-import app.api.json.databinding.CategoriesFragmentBinding
-import app.api.json.model.categories.CategoriesRepository
-import app.api.json.model.categories.Category
-import app.api.json.configuration.CategoryType
-import app.api.json.viewmodel.categories.CategoriesViewModel
-import app.api.json.viewmodel.categories.CategoriesViewModelFactory
+import app.api.categories.BuildConfig
+import app.api.categories.R
+import app.api.categories.databinding.CategoriesFragmentBinding
+import app.api.categories.model.categories.CategoriesRepository
+import app.api.categories.model.categories.Category
+import app.api.categories.configuration.CategoryType
+import app.api.categories.viewmodel.categories.CategoriesViewModel
+import app.api.categories.viewmodel.categories.CategoriesViewModelFactory
 
 
 class CategoriesFragment : Fragment() {

@@ -21,7 +21,7 @@ Next, create a file at `app/src/main/java/app/api/json/configuration/Configurati
 also`.gitignore`d) that looks like this:
 
 ```kotlin
-package app.api.json.configuration
+package app.api.categories.configuration
 
 import app.api.json.model.items.Item
 import app.api.json.model.items.Items

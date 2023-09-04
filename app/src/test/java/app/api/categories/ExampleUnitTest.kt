@@ -1,4 +1,4 @@
-package app.api.json
+package app.api.categories
 
 import org.junit.Test
 

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/category_items"
-        android:name="app.api.json.view.categories.CategoriesFragment"
+        android:name="app.api.categories.view.categories.CategoriesFragment"
         tools:layout="@layout/categories_fragment">
         <action
             android:id="@+id/action_categories_to_items"
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/items"
-        android:name="app.api.json.view.items.ItemsFragment"
+        android:name="app.api.categories.view.items.ItemsFragment"
         tools:layout="@layout/items_fragment">
         <argument
             android:name="category"

@@ -1,11 +1,11 @@
-package app.api.json.viewmodel.items
+package app.api.categories.viewmodel.items
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import app.api.json.model.items.Items
-import app.api.json.model.items.ItemsRepository
+import app.api.categories.model.items.Items
+import app.api.categories.model.items.ItemsRepository
 import kotlinx.coroutines.launch
 
 class ItemsViewModel(private val repository: ItemsRepository): ViewModel() {

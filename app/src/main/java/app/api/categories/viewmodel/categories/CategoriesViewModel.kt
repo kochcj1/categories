@@ -1,12 +1,12 @@
-package app.api.json.viewmodel.categories
+package app.api.categories.viewmodel.categories
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import app.api.json.model.categories.Categories
-import app.api.json.model.categories.CategoriesRepository
-import app.api.json.configuration.CategoryFactory
-import app.api.json.configuration.CategoryType
+import app.api.categories.model.categories.Categories
+import app.api.categories.model.categories.CategoriesRepository
+import app.api.categories.configuration.CategoryFactory
+import app.api.categories.configuration.CategoryType
 
 class CategoriesViewModel(private val repository: CategoriesRepository): ViewModel() {
 

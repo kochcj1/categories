@@ -1,8 +1,8 @@
-package app.api.json.viewmodel.items
+package app.api.categories.viewmodel.items
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import app.api.json.model.items.ItemsRepository
+import app.api.categories.model.items.ItemsRepository
 
 class ItemsViewModelFactory(private val repository: ItemsRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

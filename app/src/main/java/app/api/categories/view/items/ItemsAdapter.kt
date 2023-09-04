@@ -1,13 +1,13 @@
-package app.api.json.view.items
+package app.api.categories.view.items
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import app.api.json.databinding.ItemBinding
-import app.api.json.model.items.Item
-import app.api.json.model.items.Items
+import app.api.categories.databinding.ItemBinding
+import app.api.categories.model.items.Item
+import app.api.categories.model.items.Items
 import com.squareup.picasso.Picasso
 
 class ItemsAdapter(

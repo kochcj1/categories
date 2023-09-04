@@ -1,4 +1,4 @@
-package app.api.json
+package app.api.categories
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

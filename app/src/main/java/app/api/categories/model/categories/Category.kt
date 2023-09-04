@@ -1,7 +1,7 @@
-package app.api.json.model.categories
+package app.api.categories.model.categories
 
 import androidx.annotation.DrawableRes
-import app.api.json.configuration.CategoryType
+import app.api.categories.configuration.CategoryType
 
 data class Category(
     val type: CategoryType,
