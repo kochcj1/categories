@@ -59,6 +59,9 @@ class CategoryFactory {
 /**
  * Returns the object that will be used to make an HTTP request. There should be some way (e.g. a
  * query parameter) of telling the API what category of things to return.
+ * 
+ * Note that while the API used here is an AWS API Gateway, feel free to replace the URL and such as
+ * necessary.
  */
 fun getRequest(category: String): Request = Request.Builder()
     .url("https://<API Gateway ID>.execute-api.<AWS Region>.amazonaws.com/<API Gateway stage>/recipes?cuisine=$category")
