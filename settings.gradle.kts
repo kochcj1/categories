@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "JSON API Viewer"
+rootProject.name = "Categories App"
 include(":app")

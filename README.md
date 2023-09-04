@@ -1,4 +1,4 @@
-# JSON API Viewer
+# Categories App
 
 A general purpose, Kotlin-based Android app for displaying data that's returned by virtually any API
 that breaks up it data by category.
@@ -17,8 +17,8 @@ val appName by extra("Recipes")
 val chooseCategoryPrompt by extra("Choose a cuisine")
 ```
 
-Next, create a file at `app/src/main/java/app/api/json/configuration/Configuration.kt` that looks
-like this:
+Next, create a file at `app/src/main/java/app/api/json/configuration/Configuration.kt` (which is
+also`.gitignore`d) that looks like this:
 
 ```kotlin
 package app.api.json.configuration
