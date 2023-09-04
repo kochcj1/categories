@@ -23,8 +23,8 @@ like this:
 ```kotlin
 package app.api.json.configuration
 
-import app.api.json.model.Item
-import app.api.json.model.Items
+import app.api.json.model.items.Item
+import app.api.json.model.items.Items
 import com.google.gson.JsonParser
 import okhttp3.Request
 

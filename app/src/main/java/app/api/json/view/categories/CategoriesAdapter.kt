@@ -1,4 +1,4 @@
-package app.api.json.view
+package app.api.json.view.categories
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,18 +6,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.api.json.databinding.ItemBinding
-import app.api.json.model.Item
-import app.api.json.model.Items
-import com.squareup.picasso.Picasso
+import app.api.json.model.categories.Category
+import app.api.json.model.categories.Categories
 
-class ItemsAdapter(
-    private val context: Context,
-    private val items: Items,
+class CategoriesAdapter(
+    private val categories: Categories,
     private val listener: Listener? = null
-): RecyclerView.Adapter<ItemsAdapter.ItemViewHolder>() {
+): RecyclerView.Adapter<CategoriesAdapter.ItemViewHolder>() {
 
     interface Listener {
-        fun onItemClick(item: Item)
+        fun onItemClick(category: Category)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -26,28 +24,26 @@ class ItemsAdapter(
         return ItemViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int = categories.size
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(categories[position])
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setItems(newItems: Items) {
-        items.clear()
-        items.addAll(newItems)
+    fun setCategories(newCategories: Categories) {
+        categories.clear()
+        categories.addAll(newCategories)
         notifyDataSetChanged()
     }
 
     inner class ItemViewHolder(private val binding: ItemBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: Item) {
-            binding.title.text = item.title
-            if (item.photoUrl.isNotEmpty()) {
-                Picasso.with(context).load(item.photoUrl).into(binding.imageView)
-            }
+        fun bind(category: Category) {
+            binding.title.text = category.title
+            binding.imageView.setImageResource(category.image)
             binding.card.setOnClickListener {
                 listener?.let {
-                    listener.onItemClick(item)
+                    listener.onItemClick(category)
                 }
             }
         }

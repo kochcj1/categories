@@ -1,4 +1,4 @@
-package app.api.json.model
+package app.api.json.model.items
 
 data class Item(
     val title: String,

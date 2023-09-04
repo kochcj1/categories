@@ -1,4 +1,4 @@
-package app.api.json.view
+package app.api.json.view.items
 
 import android.os.Bundle
 import android.view.LayoutInflater

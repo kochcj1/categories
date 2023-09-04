@@ -1,4 +1,4 @@
-package app.api.json.model
+package app.api.json.model.categories
 
 import androidx.annotation.DrawableRes
 import app.api.json.configuration.CategoryType

@@ -1,19 +1,17 @@
-package app.api.json.view
+package app.api.json.view.items
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.api.json.databinding.ItemsFragmentBinding
-import app.api.json.model.Item
-import app.api.json.model.ItemsRepository
-import app.api.json.viewmodel.ItemsViewModel
-import app.api.json.viewmodel.ItemsViewModelFactory
+import app.api.json.model.items.Item
+import app.api.json.model.items.ItemsRepository
+import app.api.json.viewmodel.items.ItemsViewModel
+import app.api.json.viewmodel.items.ItemsViewModelFactory
 
 class ItemsFragment : Fragment() {
 

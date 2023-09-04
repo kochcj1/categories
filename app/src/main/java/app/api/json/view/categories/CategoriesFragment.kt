@@ -1,4 +1,4 @@
-package app.api.json.view
+package app.api.json.view.categories
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,11 +15,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import app.api.json.BuildConfig
 import app.api.json.R
 import app.api.json.databinding.CategoriesFragmentBinding
-import app.api.json.model.CategoriesRepository
-import app.api.json.model.Category
-import app.api.json.model.CategoryType
-import app.api.json.viewmodel.CategoriesViewModel
-import app.api.json.viewmodel.CategoriesViewModelFactory
+import app.api.json.model.categories.CategoriesRepository
+import app.api.json.model.categories.Category
+import app.api.json.configuration.CategoryType
+import app.api.json.viewmodel.categories.CategoriesViewModel
+import app.api.json.viewmodel.categories.CategoriesViewModelFactory
 
 
 class CategoriesFragment : Fragment() {
@@ -33,7 +33,7 @@ class CategoriesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        categoriesAdapter = CategoriesAdapter(requireContext(), arrayListOf(), CategoryListener())
+        categoriesAdapter = CategoriesAdapter(arrayListOf(), CategoryListener())
         setHasOptionsMenu(true)
         return CategoriesFragmentBinding.inflate(inflater).apply {
             initializeRecyclerView(this)

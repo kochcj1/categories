@@ -1,6 +1,8 @@
-package app.api.json.model
+package app.api.json.model.categories
 
 import app.api.json.R
+import app.api.json.configuration.CategoryType
+import app.api.json.model.categories.Category
 
 class CategoryFactory {
 

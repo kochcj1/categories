@@ -1,4 +1,4 @@
-package app.api.json.model
+package app.api.json.model.items
 
 import app.api.json.configuration.getItems
 import app.api.json.configuration.getRequest
