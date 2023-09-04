@@ -3,6 +3,7 @@ package app.api.json.model.categories
 import android.content.Context
 import androidx.core.content.edit
 import app.api.json.configuration.CategoryType
+import app.api.json.configuration.CategoryFactory
 
 class CategoriesRepository(private val context: Context) {
 

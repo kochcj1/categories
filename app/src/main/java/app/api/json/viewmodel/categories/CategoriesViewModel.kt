@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.api.json.model.categories.Categories
 import app.api.json.model.categories.CategoriesRepository
-import app.api.json.model.categories.CategoryFactory
+import app.api.json.configuration.CategoryFactory
 import app.api.json.configuration.CategoryType
 
 class CategoriesViewModel(private val repository: CategoriesRepository): ViewModel() {

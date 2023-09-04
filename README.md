@@ -36,6 +36,27 @@ enum class CategoryType {
 }
 
 /**
+ * Creates a category of the given type.
+ */
+class CategoryFactory {
+    companion object {
+        fun from(categoryType: CategoryType): Category {
+            val image = when(categoryType) {
+                CategoryType.American -> R.drawable.united_states
+                CategoryType.Chinese -> R.drawable.china
+                CategoryType.Greek -> R.drawable.greece
+                CategoryType.Indian -> R.drawable.india
+                CategoryType.Italian -> R.drawable.italy
+                CategoryType.Japanese -> R.drawable.japan
+                CategoryType.Mexican -> R.drawable.mexico
+                CategoryType.Thai -> R.drawable.thailand
+            }
+            return Category(categoryType, image)
+        }
+    }
+}
+
+/**
  * Returns the object that will be used to make an HTTP request. There should be some way (e.g. a
  * query parameter) of telling the API what category of things to return.
  */
