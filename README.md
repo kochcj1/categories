@@ -83,3 +83,5 @@ fun getItems(responseBody: String): Items {
     return ArrayList(items)
 }
 ```
+
+https://github.com/kochcj1/json-api-viewer/assets/20493743/e3764505-da58-4c54-b661-e5a7c85948d3
