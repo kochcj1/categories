@@ -8,11 +8,18 @@
     <fragment
         android:id="@+id/category_items"
         android:name="app.api.json.view.CategoriesFragment"
-        android:label="Recipes"
-        tools:layout="@layout/categories_fragment" />
+        tools:layout="@layout/categories_fragment">
+        <action
+            android:id="@+id/action_categories_to_items"
+            app:destination="@id/items" />
+    </fragment>
     <fragment
         android:id="@+id/items"
         android:name="app.api.json.view.ItemsFragment"
-        android:label="Recipes"
-        tools:layout="@layout/items_fragment" />
+        tools:layout="@layout/items_fragment">
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
+w
 </navigation>

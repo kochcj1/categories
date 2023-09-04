@@ -3,29 +3,30 @@ package app.api.json.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import app.api.json.model.Items
-import app.api.json.model.ItemsRepository
-import kotlinx.coroutines.launch
+import app.api.json.model.Categories
+import app.api.json.model.CategoriesRepository
+import app.api.json.model.CategoryFactory
+import app.api.json.model.CategoryType
 
-class ItemsViewModel(private val repository: ItemsRepository): ViewModel() {
+class CategoriesViewModel(private val repository: CategoriesRepository): ViewModel() {
 
-    private val _items = MutableLiveData<Items>()
-    val items: LiveData<Items> = _items
-
-    private val _loading = MutableLiveData<Boolean>()
-    val loading: LiveData<Boolean> = _loading
+    private val _categories = MutableLiveData<Categories>()
+    val categories: LiveData<Categories> = _categories
 
     init {
-        fetchItems()
+        fetchCategories()
     }
 
-    fun fetchItems() {
-        viewModelScope.launch {
-            _loading.value = true
-            _items.postValue(ArrayList(repository.fetch()))
-            _loading.value = false
-        }
+    private fun fetchCategories() {
+        _categories.value = ArrayList(repository.fetch())
+    }
+
+    fun addCategory(categoryType: CategoryType) {
+        val category = CategoryFactory.from(categoryType)
+        val currentList = _categories.value ?: emptyList()
+        val newList = currentList + category
+        _categories.value = ArrayList(newList)
+        repository.add(category)
     }
 
 }

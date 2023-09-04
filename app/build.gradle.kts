@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -19,14 +20,8 @@ android {
         // Load in the app's configuration:
         apply(from = "config.gradle.kts")
         val appName = extra["appName"] as String
-        val apiUrl = extra["apiUrl"] as String
-        val titleField = extra["titleField"] as String
-        val urlField = extra["urlField"] as String
-        val thumbnailUrlField = extra["thumbnailUrlField"] as String
-        buildConfigField("String", "API_URL", "\"$apiUrl\"")
-        buildConfigField("String", "TITLE_FIELD", "\"$titleField\"")
-        buildConfigField("String", "URL_FIELD", "\"$urlField\"")
-        buildConfigField("String", "THUMBNAIL_URL_FIELD", "\"$thumbnailUrlField\"")
+        val chooseCategoryPrompt = extra["chooseCategoryPrompt"] as String
+        buildConfigField("String", "CHOOSE_CATEGORY_PROMPT", "\"$chooseCategoryPrompt\"")
         manifestPlaceholders["APP_NAME"] = appName
     }
 

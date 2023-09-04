@@ -1,51 +1,61 @@
 # JSON API Viewer
 
-A general purpose, Kotlin-based Android app for displaying the JSON array returned by a given API as a list of clickable card views. This app makes use of the [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) architectural pattern.
+A general purpose, Kotlin-based Android app for displaying data that's returned by virtually any API
+that breaks up it data by category.
 
-## Example: JSONPlaceholder's `/photos` Endpoint
+This app makes use of the [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) architectural pattern.
 
-The URL `https://jsonplaceholder.typicode.com/photos` returns a JSON array of objects that look like this:
+## Example: recipes broken up by cuisine
 
-```json
-[
-  {
-    "albumId": 1,
-    "id": 1,
-    "title": "accusamus beatae ad facilis cum similique qui sunt",
-    "url": "https://via.placeholder.com/600/92c952",
-    "thumbnailUrl": "https://via.placeholder.com/150/92c952"
-  },
-  {
-    "albumId": 1,
-    "id": 2,
-    "title": "reprehenderit est deserunt velit ipsam",
-    "url": "https://via.placeholder.com/600/771796",
-    "thumbnailUrl": "https://via.placeholder.com/150/771796"
-  },
-  {
-    "albumId": 1,
-    "id": 3,
-    "title": "officia porro iure quia iusto qui ipsa ut modi",
-    "url": "https://via.placeholder.com/600/24f355",
-    "thumbnailUrl": "https://via.placeholder.com/150/24f355"
-  },
-...
-]
-```
+Because this is a general purpose app, it requires a certain amount of configuration.
 
-The configuration for this example can be found at `examples/jsonplaceholder_photos.gradle.kts`, but the contents of this (or another) config file should be copied to `app/config.gradle.kts` before building the app.
+Start by creating a configuration file at `app/config.gradle.kts` (which is `.gitignore`d) that
+looks something like this one:
 
-For this particular use case, the configuration looks like this:
 ```kotlin
-val appName by extra("JSONPlaceholder Photos")
-val apiUrl by extra("https://jsonplaceholder.typicode.com/photos")
-val titleField by extra("title")
-val urlField by extra("url")
-val thumbnailUrlField by extra("thumbnailUrl")
+val appName by extra("Recipes")
+val chooseCategoryPrompt by extra("Choose a cuisine")
 ```
 
-Variables `appName`, `apiUrl`, `titleField`, `urlField`, and `thumbnailUrlField` are imported by `app/build.gradle` and thereby made available to the app.
+Next, create a file at `app/src/main/java/app/api/json/configuration/Configuration.kt` that looks
+like this:
 
-`appName` provides the name of the app to display in the app bar, `apiUrl` provides the URL to fetch data from, while `titleField`, `urlField`, and `thumbnailUrlField` are the JSON object fields to use for each card view's title, URL (the URL to navigate to when the card is clicked), and thumbnail URL.
+```kotlin
+package app.api.json.configuration
 
-https://github.com/kochcj1/json-api-viewer/assets/20493743/ac18f4c7-8719-42a0-af9b-c4c2c9050726
+import app.api.json.model.Item
+import app.api.json.model.Items
+import com.google.gson.JsonParser
+import okhttp3.Request
+
+/**
+ * The enumeration that specifies all potential categories.
+ */
+enum class CategoryType {
+    American, Chinese, Greek, Indian, Italian, Japanese, Mexican, Thai
+}
+
+/**
+ * Returns the object that will be used to make an HTTP request. There should be some way (e.g. a
+ * query parameter) of telling the API what category of things to return.
+ */
+fun getRequest(category: String): Request = Request.Builder()
+    .url("https://<API Gateway ID>.execute-api.<AWS Region>.amazonaws.com/<API Gateway stage>/recipes?cuisine=$category")
+    .header("x-api-key", "<API Key>")
+    .build()
+
+/**
+ * Parse the HTTP response's body, returning a list of items.
+ */
+fun getItems(responseBody: String): Items {
+    val items = JsonParser.parseString(responseBody).asJsonArray.map { jsonElement ->
+        val jsonObject = jsonElement.asJsonObject
+        Item(
+            jsonObject["title"].asString,
+            jsonObject["url"].asString,
+            jsonObject["photoUrl"].asString
+        )
+    }
+    return ArrayList(items)
+}
+```

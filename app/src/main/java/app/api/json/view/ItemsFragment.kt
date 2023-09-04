@@ -2,6 +2,8 @@ package app.api.json.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -9,14 +11,15 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.api.json.databinding.ItemsFragmentBinding
 import app.api.json.model.Item
-import app.api.json.model.RemoteItemsRepository
+import app.api.json.model.ItemsRepository
 import app.api.json.viewmodel.ItemsViewModel
 import app.api.json.viewmodel.ItemsViewModelFactory
 
 class ItemsFragment : Fragment() {
 
     private val itemsViewModel: ItemsViewModel by viewModels {
-        ItemsViewModelFactory(RemoteItemsRepository())
+        val category = arguments?.let { ItemsFragmentArgs.fromBundle(it).category }
+        ItemsViewModelFactory(ItemsRepository(category!!))
     }
     private lateinit var itemsAdapter: ItemsAdapter
 
